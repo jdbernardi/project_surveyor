@@ -18,10 +18,32 @@
 	</div>
 
 
-		<div class="row">
+	<div class="row">
 
-			<%= link_to "Create New Survey", new_survey_path, class: "col-xs-10 col-xs-offset-1 center btn btn-lg btn-primary" %>
+		<%= link_to "Create New Survey", new_survey_path, class: "col-xs-10 col-xs-offset-1 center btn btn-lg btn-primary" %>
 
+	</div>
+
+	<div class="row">
+
+		<div class="col-xs-12"><br />
+			<%= link_to "Take a Survey" %>
 		</div>
 
+	</div>
 
+  <div class="row">
+
+		<% @surveys.each do | survey | %>
+
+				<h3 class="col-xs-12">
+					<%= survey.title %>
+				</h3>
+
+				<p class="col-xs-12">
+					<%= survey.description %>
+				</p>
+
+		<% end %>
+
+	</div>
