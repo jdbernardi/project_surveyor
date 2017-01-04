@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :survey
+  resources :surveys
 
-  root to: 'survey#index'
+  root to: 'surveys#index'
 
 end
