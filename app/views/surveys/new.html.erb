@@ -11,28 +11,66 @@
 
 	<div class="row">
 
-		<div class="col-xs-6 center">
-			<p>1. Build Survey</p>
-		</div>
-		<div class="col-xs-6 center">
-			<p>2. Add Questions</p>
-		</div>
+		<div class="col-xs-6 col-xs-offset-3">
 
-	</div>
+			<div class="row">
+				<div class="col-xs-6 center">
+					<p>1. Build Survey</p>
+				</div>
+				<div class="col-xs-6 center">
+					<p>2. Add Questions</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12 center">
+					<p>First, choose a title and a description for your survey</p>
+				</div>
+			</div>
+
+
+
+
 
 
 	<%= form_for @survey do | survey_fields | %>
+	<!-- SURVEY TITLE -->
 		<div class="row">
-
-			<h2 class="col-xs-4">
+			<h5 class="col-xs-12">
 				Survey Title
-			</h2>
-			<div class="col-xs-6 center">
-				<p>2. Add Questions</p>
+			</h5>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<%= survey_fields.text_field :title, class: 'col-xs-12' %>
 			</div>
+		</div>
+
+	<!-- SURVEY DESCRIPTION -->
+		<div class="row">
+			<h5 class="col-xs-12">
+				Survey Description
+			</h5>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<%= survey_fields.text_field :description, class: 'col-xs-12' %>
+			</div>
+		</div>
+
+
+
+		<div class="row">
+			<div class="col-xs-12 center"></br>
+		 		<%= survey_fields.submit %>
+		 	</div>
+		</div>
 
 		</div>
-		<%= survey_fields.submit %>
+
+	</div>
 
 	<% end %>
 
