@@ -1,0 +1,29 @@
+<%= render  :partial => "new_question" %>
+
+<!-- :locals => {:survey => @survey, :title => "title"} -->
+
+<div class="row">
+
+	<h5 class="col-xs-12">Add A Question</h5>
+
+</div>
+
+<div class="row">
+
+	<p class='col-xs-12'>Choose which type of question to add</p>
+	<%= select_tag "question", options_for_select(["Multiple Choice", "Range"], "Multiple Choice" ), class: 'col-xs-5' %>
+
+</div>
+
+<div class="row">
+
+	<%= link_to 'Add New Question', new_survey_question_path %>
+
+</div>
+
+
+<div class="row">
+
+	list of existing questions
+
+</div>

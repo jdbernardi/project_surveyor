@@ -21,7 +21,7 @@ class SurveysController < ApplicationController
 
 			flash[:success] = "created survey"
 
-			redirect_to surveys_path
+			redirect_to new_survey_question_path(@survey.id, @question)
 
 		else
 
