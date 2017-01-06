@@ -7,4 +7,7 @@ class Question < ApplicationRecord
 	has_many :options, through: :range_questions
 	has_many :answers
 
+
+	accepts_nested_attributes_for :multiple_choice, :option, :range_question
+
 end
