@@ -1,28 +1,8 @@
-<%= render  :partial => "new_question", locals: { status: 'grayed-out' } %>
+<%= render  :partial => "new_question", locals: { status: 'grayed-out', selecting_options: '' } %>
 
 <!-- :locals => {:survey => @survey, :title => "title"} -->
 
-<div class="row">
-
-	<h5 class="col-xs-12">Add A Question</h5>
-
-</div>
-
-<!-- FORM TAG TO PASS WHICH QUESTION TYPE TO QUESTION CONTROLLER -->
-	<div class="row">
-		<%= form_tag(add_type_survey_questions_path, method: 'post') do %>
-		<p class='col-xs-12'>Choose which type of question to add</p>
-		<%= select_tag "question", options_for_select([["Multiple Choice", 1] , ["Range", 2 , "Multiple Choice"]] ), class: 'col-xs-5' %>
-
-	</div>
-
-	<div class="row">
-
-		<%= submit_tag("Add Questions") %>
-
-	</div>
-
-  <% end %>
+<%= render :partial => "question_type_form" %>
 
 <div class="row">
 
