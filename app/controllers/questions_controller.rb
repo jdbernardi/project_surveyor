@@ -2,10 +2,18 @@ class QuestionsController < ApplicationController
 
 	def new
 
-		@survey = Survey.new( params[:survey] )
+		@survey = Survey.find( params[:survey_id] )
 
-		@question = Question.new
 
 	end
+
+	def add_questions
+
+
+byebug
+	end
+
+
+
 
 end

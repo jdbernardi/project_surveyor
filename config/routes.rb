@@ -3,10 +3,24 @@ Rails.application.routes.draw do
 
   resources :surveys do
 
-  	resources :questions
+  	resources :questions do
+
+  		collection do
+  			post 'add_type', :action => :add_questions
+
+  		end
+
+  	end
 
   end
 
+
+
   root to: 'surveys#index'
+
+
+
+
+
 
 end

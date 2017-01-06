@@ -1,4 +1,4 @@
-<%= render  :partial => "new_question" %>
+<%= render  :partial => "new_question", locals: { status: 'grayed-out' } %>
 
 <!-- :locals => {:survey => @survey, :title => "title"} -->
 
@@ -8,18 +8,18 @@
 
 </div>
 
-<div class="row">
+	<div class="row">
 
-	<p class='col-xs-12'>Choose which type of question to add</p>
-	<%= select_tag "question", options_for_select(["Multiple Choice", "Range"], "Multiple Choice" ), class: 'col-xs-5' %>
+		<p class='col-xs-12'>Choose which type of question to add</p>
+		<%= select_tag "question", options_for_select(["Multiple Choice", "Range"], "Multiple Choice" ), class: 'col-xs-5' %>
 
-</div>
+	</div>
 
-<div class="row">
+	<div class="row">
 
-	<%= link_to 'Add New Question', new_survey_question_path %>
+		<%= link_to 'Add New Question', add_type_survey_questions_path, method: 'post' %>
 
-</div>
+	</div>
 
 
 <div class="row">
