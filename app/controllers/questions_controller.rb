@@ -9,9 +9,11 @@ class QuestionsController < ApplicationController
 
 	def add_questions
 
+		# question 1 or 2 is passed via params
+		# survey id is also passed in
+		@survey = Survey.find( params[:survey_id])
 
 
-byebug
 	end
 
 
