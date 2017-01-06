@@ -10,6 +10,7 @@ class QuestionsController < ApplicationController
 	def add_questions
 
 
+
 byebug
 	end
 

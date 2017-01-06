@@ -8,19 +8,21 @@
 
 </div>
 
-	<div class="row">
 
+	<div class="row">
+		<%= form_tag(add_type_survey_questions_path, method: 'post') do %>
 		<p class='col-xs-12'>Choose which type of question to add</p>
-		<%= select_tag "question", options_for_select(["Multiple Choice", "Range"], "Multiple Choice" ), class: 'col-xs-5' %>
+		<%= select_tag "question", options_for_select([["Multiple Choice", 1] , ["Range", 2 , "Multiple Choice"]] ), class: 'col-xs-5' %>
 
 	</div>
 
 	<div class="row">
 
-		<%= link_to 'Add New Question', add_type_survey_questions_path, method: 'post' %>
+		<%= submit_tag("Add Questions") %>
 
 	</div>
 
+  <% end %>
 
 <div class="row">
 
