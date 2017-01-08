@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   		collection do
   			post 'add_type', :action => :add_questions
+  			post 'add_mc', :action => :add_mc
 
   		end
 

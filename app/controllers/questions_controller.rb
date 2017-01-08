@@ -17,6 +17,9 @@ class QuestionsController < ApplicationController
 	end
 
 
+	def add_mc
 
+
+	end
 
 end
