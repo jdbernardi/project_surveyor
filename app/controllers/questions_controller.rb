@@ -15,18 +15,24 @@ class QuestionsController < ApplicationController
 		# survey id is also passed in
 		@survey = Survey.find( params[:survey_id])
 
-		@question = Question.new
+		@question = Question.new( survey_id: @survey.id )
 
 		@question_type = question_type( params[:question] )
+		@question_type.question_id = @question.id
 
-		byebug
+		# need to save the mc or range
+byebug
+		# need to save question to generate id
+		# assign the question id to mc or range
 
 	end
 
 
 	def add_mc
 
-
+		# pull question id
+		# pull mc or range id or just this
+byebug
 	end
 
 end

@@ -16,10 +16,5 @@ module QuestionsHelper
 	end
 
 
-	def assign_question_id_to_type
-		#question ID to be stored in Question type
-		@question_type.question_id = @question.id
-
-	end
 
 end
