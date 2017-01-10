@@ -22,12 +22,19 @@ CREATE QUESTIONS
 	<% end %>
 
 
-<%= survey_fields.fields_for :option, Option.new do | option_fields | %>
+<%= survey_fields.fields_for :option do | option_fields | %>
 
-	<%= option_fields.label :option %>
-	<%= option_fields.text_field :option_text %>
+		<% @options.each do | option | %>
+
+			<%= option_fields.label :option %>
+			<%= option_fields.text_field :option_text, multiple: true %>
+			<%= hidden_field :id, option.id, multiple: true %>
+
+		<% end %>
 
 	<% end %>
+
+
 
 <%= survey_fields.submit %>
 

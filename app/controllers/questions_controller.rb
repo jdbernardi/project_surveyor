@@ -10,7 +10,7 @@ class QuestionsController < ApplicationController
 	end
 
 	def show
-byebug
+
 	end
 
 	def add_questions
@@ -58,6 +58,10 @@ byebug
 		# pull question id
 		@question = Question.find( params["question_id"])
 		@question_type = pull_question_type
+
+		params['num_options'].to_i.times { Option.create( question_id: @question.id ) }
+
+		@options = Option.where( question_id: @question.id )
 
 	end
 
