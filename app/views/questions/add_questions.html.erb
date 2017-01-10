@@ -22,7 +22,9 @@
 	</div>
 
 	<div class="row">
-
+		<%= hidden_field_tag 'survey_id', @survey.id %>
+    <%= hidden_field_tag 'question_id', @question.id %>
+    <%= hidden_field_tag 'question_type_id', @question_type.id %>
 		<%= submit_tag("Create Question") %>
 
 	</div>

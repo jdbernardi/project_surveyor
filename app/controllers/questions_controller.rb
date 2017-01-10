@@ -16,12 +16,17 @@ class QuestionsController < ApplicationController
 		@survey = Survey.find( params[:survey_id])
 
 		@question = Question.new( survey_id: @survey.id )
+		@question.save
+
 
 		@question_type = question_type( params[:question] )
+
 		@question_type.question_id = @question.id
 
-		# need to save the mc or range
+		@question_type.save
 byebug
+		# need to save the mc or range
+
 		# need to save question to generate id
 		# assign the question id to mc or range
 
