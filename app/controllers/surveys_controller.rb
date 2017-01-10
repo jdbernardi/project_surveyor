@@ -10,7 +10,6 @@ class SurveysController < ApplicationController
 
 		@survey = Survey.new
 
-
 	end
 
 	def create
@@ -31,6 +30,14 @@ class SurveysController < ApplicationController
 		end
 
 	end
+
+
+def update
+
+	byebug
+
+end
+
 
 end
 

@@ -9,6 +9,10 @@ class QuestionsController < ApplicationController
 
 	end
 
+	def show
+byebug
+	end
+
 	def add_questions
 
 		# question 1 or 2 is passed via params
@@ -23,8 +27,12 @@ class QuestionsController < ApplicationController
 
 		@question_type.question_id = @question.id
 
+		assign_type_to_question
+
+		@question.save
+
 		@question_type.save
-byebug
+
 		# need to save the mc or range
 
 		# need to save question to generate id
@@ -35,9 +43,22 @@ byebug
 
 	def add_mc
 
+		@survey = Survey.find( params["survey_id"])
 		# pull question id
+		@question = Question.find( params["question_id"])
+		@question_type = pull_question_type
 		# pull mc or range id or just this
-byebug
+
+	end
+
+
+	def create_questions
+
+		@survey = Survey.find( params["survey_id"])
+		# pull question id
+		@question = Question.find( params["question_id"])
+		@question_type = pull_question_type
+
 	end
 
 end

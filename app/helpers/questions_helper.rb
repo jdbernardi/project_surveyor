@@ -16,5 +16,33 @@ module QuestionsHelper
 	end
 
 
+	def assign_type_to_question
+
+		if @question_type.class.name == 'MultipleChoiceQuestion'
+
+			@question.question_type = 'mc'
+
+		elsif @question_type.class.name == 'RangeQuestion'
+
+			@question.question_type == 'range'
+
+		end
+
+	end
+
+
+	def pull_question_type
+
+		if @question.question_type = 'mc'
+
+			return MultipleChoiceQuestion.find( params["question_type_id"])
+
+		elsif @question.question_type = 'range'
+
+			return RangeQuestion.find( params["question_type_id"])
+
+		end
+
+	end
 
 end
