@@ -55,24 +55,39 @@ class QuestionsController < ApplicationController
 	def create_questions
 
 		@survey = Survey.find( params["survey_id"])
-		# pull question id
 		@question = Question.find( params["question_id"])
 		@question_type = pull_question_type
 
-		#update if multiple allowed
+		#update @question_type if multiple allowed
 		save_multiple_allowed_to_question
 
+		# generate multiple option objects for fields in form
 		params['num_options'].to_i.times { @question.options.build  }
 
-
-		 #@options = Option.where( question_id: @question.id )
 
 	end
 
 
 	def update
-byebug
+
+		@question = Question.find( params[:id] )
+
+
+		byebug
+
+
 	end
 
 end
 
+
+private
+
+  def whitelisted_survey_params
+
+    params.require(:question).permit(
+    					:id,
+    					:question).permit!(
+              :options_attributes )
+
+  end
