@@ -19,17 +19,18 @@ CREATE QUESTIONS
 
 
 
-    <% @question.options.each_with_index do |option, i| %>
 
-    <%= question_fields.fields_for "options_attributes][#{i}", option do |options_fields| %>
 
+    <%= question_fields.fields_for :options do |options_fields| %>
+
+    <div class="row">
       <%= options_fields.label :option_text %>
       <%= options_fields.text_field :option_text %>
-
+    </div>
 
 	  <% end %>
 
-	<% end %>
+
 
 <%= question_fields.submit %>
 

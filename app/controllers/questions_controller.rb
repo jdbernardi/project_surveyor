@@ -59,10 +59,12 @@ class QuestionsController < ApplicationController
 		@question = Question.find( params["question_id"])
 		@question_type = pull_question_type
 
+		#update if multiple allowed
+		save_multiple_allowed_to_question
 
 		params['num_options'].to_i.times { @question.options.build  }
 
-byebug
+
 		 #@options = Option.where( question_id: @question.id )
 
 	end

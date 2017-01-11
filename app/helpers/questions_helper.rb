@@ -16,6 +16,21 @@ module QuestionsHelper
 	end
 
 
+
+
+	def save_multiple_allowed_to_question
+byebug
+		if params['multiple'] == 'true'
+
+			@question_type.update( multiple_allowed: true )
+
+		end
+
+	end
+
+
+
+
 	def assign_type_to_question
 
 		if @question_type.class.name == 'MultipleChoiceQuestion'
