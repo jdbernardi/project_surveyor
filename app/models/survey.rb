@@ -7,7 +7,9 @@ class Survey < ApplicationRecord
 	has_many :questions
 	has_many :answers
 
+	has_many :options, through: :questions
 
-	accepts_nested_attributes_for :questions
+
+	accepts_nested_attributes_for :questions, :options
 
 end

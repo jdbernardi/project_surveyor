@@ -59,10 +59,17 @@ class QuestionsController < ApplicationController
 		@question = Question.find( params["question_id"])
 		@question_type = pull_question_type
 
-		params['num_options'].to_i.times { Option.create( question_id: @question.id ) }
 
-		@options = Option.where( question_id: @question.id )
+		params['num_options'].to_i.times { @question.options.build  }
 
+byebug
+		 #@options = Option.where( question_id: @question.id )
+
+	end
+
+
+	def update
+byebug
 	end
 
 end

@@ -12,30 +12,25 @@ CREATE QUESTIONS
 
 </div>
 
-<%= form_for @survey do | survey_fields | %>
-
-	<%= survey_fields.fields_for :question do | question_fields | %>
+<%= form_for @question do | question_fields | %>
 
 		<%= question_fields.label :question %>
-		<%= question_fields.text_field :text %>
+		<%= question_fields.text_field :question %>
+
+
+
+    <% @question.options.each_with_index do |option, i| %>
+
+    <%= question_fields.fields_for "options_attributes][#{i}", option do |options_fields| %>
+
+      <%= options_fields.label :option_text %>
+      <%= options_fields.text_field :option_text %>
+
+
+	  <% end %>
 
 	<% end %>
 
-
-<%= survey_fields.fields_for :option do | option_fields | %>
-
-		<% @options.each do | option | %>
-
-			<%= option_fields.label :option %>
-			<%= option_fields.text_field :option_text, multiple: true %>
-			<%= hidden_field :id, option.id, multiple: true %>
-
-		<% end %>
-
-	<% end %>
-
-
-
-<%= survey_fields.submit %>
+<%= question_fields.submit %>
 
 <% end %>
