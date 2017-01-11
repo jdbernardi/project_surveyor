@@ -19,7 +19,7 @@ module QuestionsHelper
 
 
 	def save_multiple_allowed_to_question
-byebug
+
 		if params['multiple'] == 'true'
 
 			@question_type.update( multiple_allowed: true )
