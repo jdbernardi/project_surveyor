@@ -71,10 +71,12 @@ class QuestionsController < ApplicationController
 	def update
 
 		@question = Question.find( params[:id] )
-
-
 		byebug
+		add_options
 
+		flash.notice = "Question added!"
+
+		redirect_to surveys_path
 
 	end
 
@@ -83,11 +85,9 @@ end
 
 private
 
-  def whitelisted_survey_params
+  def whitelisted_question_params
 
-    params.require(:question).permit(
-    					:id,
-    					:question).permit!(
-              :options_attributes )
+		params.require(:question).permit(:question, "options_attributes"=>"option_text")
+
 
   end

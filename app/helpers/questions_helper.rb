@@ -60,4 +60,18 @@ module QuestionsHelper
 
 	end
 
+	def add_options
+
+		params[:question][:options_attributes].each do | k, v |
+
+			Option.create(option_text: v["option_text"], question_id: @question.id )
+
+
+		end
+
+	end
+
+
+
+
 end
