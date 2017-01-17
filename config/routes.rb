@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   			post 'add_mc', :action => :add_mc
   			post 'create_questions', :action => :create_questions
 
+
   		end
 
   	end

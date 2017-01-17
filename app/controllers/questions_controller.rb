@@ -2,6 +2,14 @@ class QuestionsController < ApplicationController
 
 	include QuestionsHelper
 
+	def index
+
+		@survey = Survey.find( params[:survey_id] )
+
+
+	end
+
+
 	def new
 
 		@survey = Survey.find( params[:survey_id] )
@@ -76,7 +84,7 @@ class QuestionsController < ApplicationController
 
 		flash.notice = "Question added!"
 
-		redirect_to surveys_path
+		redirect_to questions_path( survey_id: @question.survey_id )
 
 	end
 
