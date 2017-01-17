@@ -7,7 +7,7 @@ class SurveysController < ApplicationController
 	end
 
 	def new
-
+byebug
 		@survey = Survey.new
 
 	end
@@ -46,7 +46,7 @@ end
 private
 
   def whitelisted_survey_params
-byebug
+
     params.require(:survey).permit( :title,
               :description )
   end

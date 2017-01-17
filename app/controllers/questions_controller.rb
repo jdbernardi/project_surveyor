@@ -3,8 +3,10 @@ class QuestionsController < ApplicationController
 	include QuestionsHelper
 
 	def new
-
+byebug
 		@survey = Survey.find( params[:survey_id] )
+
+		@question = Question.new
 
 
 	end
@@ -15,13 +17,11 @@ class QuestionsController < ApplicationController
 
 	def add_questions
 
-		# question 1 or 2 is passed via params
+		# 1 or 2 is passed via params for mc or range
 		# survey id is also passed in
 		@survey = Survey.find( params[:survey_id])
 
-		@question = Question.new( survey_id: @survey.id )
-		@question.save
-
+		@question = Question.create( survey_id: @survey.id )
 
 		@question_type = question_type( params[:question] )
 
@@ -29,20 +29,12 @@ class QuestionsController < ApplicationController
 
 		assign_type_to_question
 
-		@question.save
-
-		@question_type.save
-
-		# need to save the mc or range
-
-		# need to save question to generate id
-		# assign the question id to mc or range
 
 	end
 
 
 	def add_mc
-
+byebug
 		@survey = Survey.find( params["survey_id"])
 		# pull question id
 		@question = Question.find( params["question_id"])
@@ -71,12 +63,13 @@ class QuestionsController < ApplicationController
 	def update
 
 		@question = Question.find( params[:id] )
-		byebug
+		@survey = Survey.where( :id => @question.survey_id )
+
 		add_options
 
 		flash.notice = "Question added!"
-
-		redirect_to surveys_path
+byebug
+		redirect_to new_question_path( @survey.id )
 
 	end
 

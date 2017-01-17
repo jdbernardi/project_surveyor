@@ -43,6 +43,8 @@ module QuestionsHelper
 
 		end
 
+		@question.save
+
 	end
 
 
