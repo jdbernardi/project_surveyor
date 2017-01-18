@@ -5,17 +5,19 @@
 </div>
 
 <!-- FORM TAG TO PASS WHICH QUESTION TYPE TO QUESTION CONTROLLER -->
-	<div class="row">
-		<%= form_tag(add_type_survey_questions_path, method: 'post') do %>
-		<p class='col-xs-12'>Choose which type of question to add</p>
-		<%= select_tag "question", options_for_select([["Multiple Choice", 1] , ["Range", 2 , "Multiple Choice"]] ), class: 'col-xs-5' %>
 
-	</div>
+	<%= form_for @survey do | s_fields | %>
 
-	<div class="row">
+		<%= s_fields.fields_for @question do | q_fields | %>
 
-		<%= submit_tag("Add Questions") %>
+	  <div class='row form-group'>
 
-	</div>
+	  	<%= q_fields.label :question_type, "Select Question Type" %>
+	  	<%= q_fields.select :question_type, options_for_select([["Multiple Choice", "mc" ], ["Range", "range"]] ) %>
+	  	<%= q_fields.submit :Add_Questions %>
 
-  <% end %>
+	  </div>
+
+	  <% end %>
+
+	<% end %>

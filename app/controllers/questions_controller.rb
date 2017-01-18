@@ -3,25 +3,23 @@ class QuestionsController < ApplicationController
 	include QuestionsHelper
 
 	def index
-
-		@survey = Survey.find( params[:survey_id] )
+byebug
 
 
 	end
 
 
 	def new
-
+byebug
 		@survey = Survey.find( params[:survey_id] )
-
-
-	end
-
-	def show
+		@question = Question.new
 
 	end
+
+
 
 	def add_questions
+byebug
 
 		# question 1 or 2 is passed via params
 		# survey id is also passed in
@@ -61,11 +59,11 @@ class QuestionsController < ApplicationController
 
 
 	def create_questions
-
+byebug
 		@survey = Survey.find( params["survey_id"])
 		@question = Question.find( params["question_id"])
 		@question_type = pull_question_type
-
+byebug
 		#update @question_type if multiple allowed
 		save_multiple_allowed_to_question
 
@@ -77,6 +75,7 @@ class QuestionsController < ApplicationController
 
 
 	def update
+byebug
 
 		@question = Question.find( params[:id] )
 		byebug

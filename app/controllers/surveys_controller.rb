@@ -20,7 +20,7 @@ class SurveysController < ApplicationController
 
 			flash[:success] = "created survey"
 
-			redirect_to new_survey_question_path(@survey.id )
+			redirect_to new_survey_question_path( @survey )
 
 		else
 
@@ -31,12 +31,31 @@ class SurveysController < ApplicationController
 
 	end
 
+	def show
 
-def update
+		if Survey.find( params[:id] )
 
-byebug
+			@survey = Survey.find( params[:id] )
+			@question = Question.new
 
-end
+		else
+
+			flash.now[:error] = "Couldn't find survey"
+
+			redirect_to surveys_path
+
+		end
+
+
+
+	end
+
+
+	def update
+
+		@survey = Survey.find( params[:id] )
+
+	end
 
 
 end
