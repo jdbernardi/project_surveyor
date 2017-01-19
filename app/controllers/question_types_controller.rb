@@ -42,12 +42,16 @@ byebug
 
 
 	def set_mc_options
-
-		@question = Question.create( question_params)
+byebug
+		@survey = Survey.find( params[:survey_id] )
+		@question = Question.create( question_params )
 		@mc_child = MultipleChoiceQuestion.create( mc_params )
 
-
+		@question.update(:survey_id => @survey.id )
+		@mc_child.update(:question_id => @question.id)
 byebug
+		redirect_to new_question_path( :question_id => @question.id, :num_options => params[:num_options] )
+
 	end
 
 end
@@ -65,7 +69,7 @@ private
 
 	def mc_params
 
-		params.permit(:multiple)
+		params.permit(:multiple_allowed)
 
 	end
 

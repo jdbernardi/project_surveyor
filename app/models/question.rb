@@ -1,6 +1,6 @@
 class Question < ApplicationRecord
 
-	belongs_to :survey
+	belongs_to :survey, optional: true
 	belongs_to :multiple_choice_question, optional: true
 	belongs_to :range_question, optional: true
 	has_many :options, through: :multiple_choices
