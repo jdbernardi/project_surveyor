@@ -13,12 +13,12 @@ byebug
 byebug
 		@survey = Survey.find( params[:survey_id] )
 		@question = Question.new
-
+byebug
 	end
 
 
 
-	def add_questions
+	def add_number_of_questions
 byebug
 
 		# question 1 or 2 is passed via params

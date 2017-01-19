@@ -31,24 +31,7 @@ class SurveysController < ApplicationController
 
 	end
 
-	def show
 
-		if Survey.find( params[:id] )
-
-			@survey = Survey.find( params[:id] )
-			@question = Question.new
-
-		else
-
-			flash.now[:error] = "Couldn't find survey"
-
-			redirect_to surveys_path
-
-		end
-
-
-
-	end
 
 
 	def update

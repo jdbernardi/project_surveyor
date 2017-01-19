@@ -6,18 +6,18 @@
 
 <!-- FORM TAG TO PASS WHICH QUESTION TYPE TO QUESTION CONTROLLER -->
 
-	<%= form_for @survey do | s_fields | %>
+	<!-- form_for(@survey, url: survey_question_add_number_of_questions_path(@survey, @question ) ) do | s_fields | %>-->
 
-		<%= s_fields.fields_for @question do | q_fields | %>
+		<%= form_for @question, action: "add_options"  do | q_fields | %>
 
 	  <div class='row form-group'>
 
 	  	<%= q_fields.label :question_type, "Select Question Type" %>
 	  	<%= q_fields.select :question_type, options_for_select([["Multiple Choice", "mc" ], ["Range", "range"]] ) %>
-	  	<%= q_fields.submit :Add_Questions %>
+	  	<%= q_fields.submit :AddQuestions %>
 
 	  </div>
 
 	  <% end %>
 
-	<% end %>
+
