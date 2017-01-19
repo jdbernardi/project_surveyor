@@ -1,0 +1,21 @@
+<div class="row">
+
+	<h5 class="col-xs-12">Add A Question</h5>
+
+</div>
+
+<!-- FORM TAG TO PASS WHICH QUESTION TYPE TO QUESTION CONTROLLER -->
+
+	<!-- form_for(@survey, url: survey_question_add_number_of_questions_path(@survey, @question ) ) do | s_fields | %>-->
+
+	<%= form_tag select_question_type_path, method: 'get' do %>
+
+
+		<%= hidden_field_tag 'survey_id', @survey.id %>
+
+		<%= select_tag :question_type, options_for_select([["Multiple Choice", "mc" ], ["Range", "range"]] ) %>
+
+		<%= submit_tag 'Create Questions' %>
+
+	<% end %>
+

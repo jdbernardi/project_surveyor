@@ -3,7 +3,9 @@ class QuestionsController < ApplicationController
 	include QuestionsHelper
 
 	def index
-byebug
+
+		@survey = Survey.find( params[:survey_id] )
+		@questions = Question.where( :survey_id => @survey_id)
 
 
 	end
