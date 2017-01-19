@@ -1,0 +1,48 @@
+<%= render  :partial => "/shared/survey_fields_form", survey: @survey %>
+
+
+<div class="row">
+
+	<h5 class='col-xs-12'>Add a Multiple Choice Question:</h5>
+
+	<div class='row'>
+		<div class="col-xs-6">1. Select Options</div>
+		<div class="col-xs-6">2. Add Question Text</div>
+	</div>
+
+	<div class='row'>
+		<p class="col-xs-12">How many options should the question have?</p>
+	</div>
+
+
+	<%= form_tag define_options_path, method: 'get' do  %>
+
+		<!-- SELECT NUMBER OF OPTIONS -->
+		<%= select_tag "num_options", options_for_select([1,2,3,4,5] ), class: 'col-xs-5' %>
+<!-- SELECT MULTIPLE ALLOWED -->
+
+		<p>How many options can be selected?</p>
+		<div class="row form-group">
+			<%= radio_button_tag(:multiple, false ) %>
+			<%= label_tag(:just_one, "Just one") %>
+			<%= radio_button_tag(:multiple, true ) %>
+			<%= label_tag(:just_one, "Allow multiple" ) %>
+	  </div>
+
+		<p>Is this required?</p>
+		<div class="row form-group">
+			<%= radio_button_tag(:required, false ) %>
+			<%= label_tag(:just_one, "Yes") %>
+			<%= radio_button_tag(:required, true ) %>
+			<%= label_tag(:just_one, "No" ) %>
+		</div>
+		<br />
+
+			<%= hidden_field_tag :question_type, @question_type %>
+
+			<%= submit_tag :CreateQuestions %>
+
+		<% end %>
+
+
+</div>

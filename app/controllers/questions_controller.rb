@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
 
 
 	def new
-byebug
+
 		@survey = Survey.find( params[:survey_id] )
 		@question = Question.new
 byebug
