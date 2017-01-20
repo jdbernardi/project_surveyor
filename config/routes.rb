@@ -3,9 +3,13 @@ Rails.application.routes.draw do
 
   get 'define_options', to: 'question_types#set_mc_options'
 
-  resources :surveys,   only: [:index, :new, :create, :destroy]
+  resources :surveys,   only: [:index, :new, :create, :destroy] do
 
-  resources :questions
+  	resources :questions
+
+	end
+
+
   resources :question_types,  only: [:index]
   get 'select_question_type', to: "question_types#select"
   get 'select_mc_options', to: 'question_types#options'

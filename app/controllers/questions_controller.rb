@@ -14,8 +14,9 @@ class QuestionsController < ApplicationController
 	def new
 
 byebug
-		@question = Question.find( params[:question_id] )
-		@survey = Survey.find_by( :id => @question.survey_id )
+		@survey = Survey.find( params[:survey_id] )
+		@question = @survey.questions.build
+
 
 		params['num_options'].to_i.times { @question.options.build  }
 
