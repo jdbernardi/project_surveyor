@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'select_question_type', to: "question_types#select"
   get 'select_mc_options', to: 'question_types#options'
 
-
+  resources :multiple_choice_questions, only: [:new, :create, :update]
 
   root to: "surveys#index"
 

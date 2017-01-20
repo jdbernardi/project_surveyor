@@ -15,7 +15,7 @@ class QuestionTypesController < ApplicationController
 
 		if params[:question_type] = 'mc'
 
-			redirect_to select_mc_options_path( :survey_id => @survey.id, :question_type => params[:question_type] )
+			redirect_to new_multiple_choice_question_path( :survey_id => @survey.id )
 
 		elsif params[:question_type] = 'range'
 
