@@ -1,5 +1,7 @@
 <div class="row">
 
+	QUESTION TYPES PARTIAL
+
 	<h5 class="col-xs-12">Add A Question</h5>
 
 </div>
@@ -8,7 +10,7 @@
 
 	<!-- form_for(@survey, url: survey_question_add_number_of_questions_path(@survey, @question ) ) do | s_fields | %>-->
 
-	<%= form_tag select_question_type_path, method: 'get' do %>
+	<%= form_tag select_question_type_path do %>
 
 
 		<%= hidden_field_tag 'survey_id', @survey.id %>

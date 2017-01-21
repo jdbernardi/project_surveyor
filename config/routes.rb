@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   root to: "surveys#index"
 
-
+  post '/surveys/:id/questions/add_type', to: 'question_types#select'
 
 
 
