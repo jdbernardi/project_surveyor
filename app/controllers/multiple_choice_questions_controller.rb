@@ -1,10 +1,10 @@
 class MultipleChoiceQuestionsController < ApplicationController
 
 	def new
-
+byebug
 		@survey = Survey.find(params[:survey_id])
 		@mc_question = MultipleChoiceQuestion.new
-byebug
+
 	end
 
 
