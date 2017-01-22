@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   resources :surveys,   only: [:index, :new, :create, :destroy] do
 
-  	resources :questions
+  	resources :multiple_choice_questions
+    resources :range_questions
 
 	end
 
@@ -18,7 +19,6 @@ Rails.application.routes.draw do
 
   root to: "surveys#index"
 
-  post '/surveys/:id/questions/add_type', to: 'question_types#select'
 
 
 
