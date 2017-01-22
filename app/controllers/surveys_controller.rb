@@ -20,7 +20,7 @@ class SurveysController < ApplicationController
 
 			flash[:success] = "created survey"
 
-			redirect_to new_survey_question_path( @survey.id )
+			redirect_to select_question_type_path( :id => @survey.id )
 
 			#explicitly named route
 

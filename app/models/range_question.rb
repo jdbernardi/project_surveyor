@@ -1,6 +1,6 @@
 class RangeQuestion < ApplicationRecord
 
-	belongs_to :question, optional: true
+	belongs_to :question
 	has_many :options
 	belongs_to :answer
 

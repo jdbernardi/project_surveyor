@@ -6,6 +6,8 @@ class Survey < ApplicationRecord
 
 	has_many :questions
 	has_many :answers
+	has_many :multiple_choice_questions, through: :questions
+	has_many :range_questions, through: :questions
 
 	has_many :options, through: :questions
 

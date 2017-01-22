@@ -3,7 +3,9 @@ class MultipleChoiceQuestionsController < ApplicationController
 	def new
 byebug
 		@survey = Survey.find(params[:survey_id])
-		@mc_question = MultipleChoiceQuestion.new
+		@question = @survey.questions.build
+		@mc_question = @question.multiple_choice_questions.build
+byebug
 
 	end
 

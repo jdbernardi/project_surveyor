@@ -17,7 +17,6 @@ byebug
 		@survey = Survey.find( params[:survey_id] )
 		@question = @survey.questions.build
 
-
 		params['num_options'].to_i.times { @question.options.build  }
 
 		#generate the build for this new form using the create questions action
