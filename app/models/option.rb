@@ -1,10 +1,12 @@
 class Option < ApplicationRecord
 
 
-	has_many :multiple_choice_questions
-	has_many :range_questions
+	belongs_to :multiple_choice_questions
+	belongs_to :range_questions
 
 	belongs_to :survey
 
 
 end
+
+

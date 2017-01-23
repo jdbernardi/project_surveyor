@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  get 'define_options', to: 'question_types#set_mc_options'
+  #get 'define_options', to: 'question_types#set_mc_options'
+
+  get 'new_options', to: 'multiple_choice_questions#new_options'
 
   resources :surveys,   only: [:index, :new, :create, :destroy] do
 

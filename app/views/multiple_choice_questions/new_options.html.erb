@@ -1,0 +1,28 @@
+<div class="row">
+
+	<div class="form-group col-xs-6 col-xs-offset-2">
+
+		<%= form_for multiple_choice_question_path do | mc | %>
+
+			<div class='row'>
+				<%= mc.label :text %>
+				<%= mc.text_field :text, required: true %>
+		  </div>
+				<%= mc.fields_for @options do | o_fields | %>
+
+					<% @question.num_options.times do %>
+
+					<div class="row">
+						<%= o_fields.label :option_text %>
+						<%= o_fields.text_field :option_text %>
+					</div>
+				<% end %>
+
+
+		<% end %>
+
+
+	</div>
+
+
+</div>

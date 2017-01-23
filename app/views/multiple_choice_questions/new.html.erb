@@ -1,4 +1,4 @@
-<%= render  :partial => "/shared/survey_fields_form", survey: @survey %>
+<%= render  :partial => "/shared/survey_fields_form", survey: @mc_question.survey_id %>
 
 <div class="row">
 
@@ -9,20 +9,17 @@
 		<div class="col-xs-6">2. Add Question Text</div>
 	</div>
 
-<%= form_for @question do | q_fields | %>
+<%= form_for @mc_question do | mc_fields | %>
 
+			<%= hidden_field_tag :survey_id, @mc_question.survey_id %>
 			<p>Is this required?</p>
 			<div class="row form-group">
-				<%= q_fields.radio_button :required, 'true', :checked => true %>
-	 		  <%= q_fields.label :allow_multiple, 'Yes' %>
-	 		  <%= q_fields.radio_button :required, 'false', :checked => false %>
-	 		  <%= q_fields.label :allow_multiple, 'No' %>
+				<%= mc_fields.radio_button :required, 'true', :checked => true %>
+	 		  <%= mc_fields.label :allow_multiple, 'Yes' %>
+	 		  <%= mc_fields.radio_button :required, 'false', :checked => false %>
+	 		  <%= mc_fields.label :allow_multiple, 'No' %>
 			</div>
 			<br />
-
-
-    <%= q_fields.fields_for @mc_question do | mc_fields | %>
-
 
 	<div class='row'>
 		<p class="col-xs-12">How many options should the question have?</p>
@@ -46,5 +43,4 @@
 	 <% end %>
 
 
-<% end %>
 	</div>

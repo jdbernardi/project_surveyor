@@ -33,30 +33,7 @@ byebug
 	end
 
 
-	def options
-		@survey = Survey.find( params[:survey_id])
-		byebug
-		@question_type = params[:question_type]
-byebug
-	end
 
-
-	def set_mc_options
-byebug
-		@survey = Survey.find( params[:survey_id] )
-		@question = Question.create( question_params )
-		@mc_child = MultipleChoiceQuestion.create( mc_params )
-
-		@question.update(:survey_id => @survey.id )
-		@mc_child.update(:question_id => @question.id)
-byebug
-		redirect_to new_question_path( :question_id => @question.id, :num_options => params[:num_options] )
-
-	end
-
-end
-
-#<ActionController::Parameters {"utf8"=>"✓", "num_options"=>"3", "multiple"=>"true", "required"=>"true", "question_type"=>"mc", "commit"=>"CreateQuestions", "controller"=>"question_types", "action"=>"set_mc_options"} permitted: false>
 
 private
 
@@ -81,4 +58,5 @@ private
 	end
 
 
+end
 	   #params.require(:survey).permit( :title, :description )
