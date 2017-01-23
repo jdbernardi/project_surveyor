@@ -11,7 +11,7 @@ class QuestionTypesController < ApplicationController
 
 	def select
 byebug
-		@survey = Survey.find( params[:id] )
+		@survey = Survey.find( params[:survey_id] )
 
 		if params[:question_type] = 'mc'
 

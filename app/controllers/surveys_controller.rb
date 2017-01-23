@@ -13,14 +13,14 @@ class SurveysController < ApplicationController
 	end
 
 	def create
-
+byebug
 		@survey = Survey.new( whitelisted_survey_params )
 
 		if @survey.save
 
 			flash[:success] = "created survey"
 
-			redirect_to select_question_type_path( :id => @survey.id )
+			redirect_to question_types_path( :survey_id => @survey.id )
 
 			#explicitly named route
 
