@@ -4,5 +4,7 @@ class MultipleChoiceQuestion < ApplicationRecord
 	has_many :answers
 	belongs_to :survey
 
+	accepts_nested_attributes_for :options
+
 
 end

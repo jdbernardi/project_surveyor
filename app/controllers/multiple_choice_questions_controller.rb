@@ -13,6 +13,7 @@ byebug
 		@question = MultipleChoiceQuestion.find( params[:question_id] )
 		@options = @question.options.build
 
+
 	end
 
 
@@ -36,6 +37,13 @@ byebug
 
 
 	end
+
+
+	def update
+byebug
+
+	end
+
 
 end
 
