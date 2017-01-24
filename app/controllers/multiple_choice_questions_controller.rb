@@ -44,7 +44,7 @@ end
 private
 
 
-	def mc_parmas
+	def mc_params
 byebug
 		params.require(:multiple_choice_question).permit(:num_options, :multiple_allowed, :survey_id, :required)
 
