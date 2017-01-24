@@ -9,7 +9,7 @@ class QuestionTypesController < ApplicationController
 	end
 
 
-	def select
+	def select_mc_or_range
 byebug
 		@survey = Survey.find( params[:survey_id] )
 

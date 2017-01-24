@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
 
   resources :question_types,  only: [:index]
-  post 'select_question_type', to: "question_types#select"
+  post 'select_question_type', to: "question_types#select_mc_or_range"
   get 'select_mc_options', to: 'question_types#options'
 
   resources :multiple_choice_questions, only: [:new, :create, :update]
