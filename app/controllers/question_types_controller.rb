@@ -10,7 +10,7 @@ class QuestionTypesController < ApplicationController
 
 
 	def select_mc_or_range
-byebug
+
 		@survey = Survey.find( params[:survey_id] )
 
 		if params[:question_type] = 'mc'

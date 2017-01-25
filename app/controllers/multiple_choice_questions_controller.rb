@@ -9,21 +9,23 @@ class MultipleChoiceQuestionsController < ApplicationController
 	end
 
 	def new_options
-byebug
-		@question = MultipleChoiceQuestion.find( params[:question_id] )
-		@options = @question.options.build
 
+		@question = MultipleChoiceQuestion.find( params[:question_id] )
+		@options = []
+
+		@question.num_options.times do |x|
+
+			@options << @question.options.build
+
+		end
 
 	end
 
 
 	def create
-byebug
+
 		@survey = Survey.find( params[:survey_id])
 		@mc_question = @survey.multiple_choice_questions.build( mc_params )
-		byebug
-
-
 
 		if @mc_question.save
 
@@ -35,11 +37,15 @@ byebug
 
 		end
 
-
 	end
 
 
+
 	def update
+
+		@question = MultipleChoiceQuestion.find( params[:id])
+byebug
+		@question.update( mc_options )
 byebug
 
 	end
@@ -53,8 +59,18 @@ private
 
 
 	def mc_params
-byebug
+
 		params.require(:multiple_choice_question).permit(:num_options, :multiple_allowed, :survey_id, :required)
 
 	end
 
+	def mc_options
+
+		params.require('multiple_choice_question').
+			permit(:id,
+						 :text,
+						 { :options_attributes => [
+						 	 :option_text
+						 	] } )
+
+	end

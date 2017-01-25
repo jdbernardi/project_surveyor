@@ -10,17 +10,15 @@
 		  </div>
 				<%= mc.fields_for :options do | o_fields | %>
 
-					<% @question.num_options.times do %>
 
 					<div class="row">
 						<%= o_fields.label :option_text %>
 						<%= o_fields.text_field :option_text %>
 					</div>
-				<% end %>
-
-				<%= o_fields.submit :CreateQuestion %>
 
 			<% end %>
+
+				<%= mc.submit :CreateQuestion %>
 
 		<% end %>
 

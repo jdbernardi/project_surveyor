@@ -13,7 +13,7 @@ class SurveysController < ApplicationController
 	end
 
 	def create
-byebug
+
 		@survey = Survey.new( whitelisted_survey_params )
 
 		if @survey.save

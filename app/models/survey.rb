@@ -9,8 +9,8 @@ class Survey < ApplicationRecord
 	has_many :multiple_choice_questions
 	has_many :range_questions
 
-	has_many :options, through: :multiple_choice_questions
-	has_many :options, through: :multiple_choice_questions
+	#has_many :options, through: :multiple_choice_questions
+	#has_many :options, through: :multiple_choice_questions
 
 
 	accepts_nested_attributes_for :multiple_choice_questions, :range_questions
