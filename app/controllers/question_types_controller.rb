@@ -4,7 +4,8 @@ class QuestionTypesController < ApplicationController
 	def index
 
     @survey = Survey.find(params[:survey_id])
-
+    byebug
+    @questions = @survey.questions
 
 	end
 

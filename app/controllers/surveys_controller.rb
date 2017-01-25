@@ -7,7 +7,7 @@ class SurveysController < ApplicationController
 	end
 
 	def new
-byebug
+
 		@survey = Survey.new
 
 	end

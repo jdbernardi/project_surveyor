@@ -45,8 +45,18 @@ class MultipleChoiceQuestionsController < ApplicationController
 
 		@question = MultipleChoiceQuestion.find( params[:id])
 byebug
-		@question.update( mc_options )
-byebug
+		if @question.update( mc_options )
+
+			redirect_to question_types_path(:survey_id => @question.survey_id )
+
+		else
+
+			flash[:notice] = "Unable to save"
+
+			render :new
+
+		end
+
 
 	end
 
