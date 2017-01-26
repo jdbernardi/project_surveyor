@@ -5,8 +5,11 @@ Rails.application.routes.draw do
 
   get 'new_options', to: 'multiple_choice_questions#new_options'
 
+
+
   resources :surveys,   only: [:index, :new, :create, :destroy] do
 
+    get 'take_survey', to: 'surveys#take_survey'
   	resources :multiple_choice_questions
     resources :range_questions
 

@@ -47,6 +47,13 @@ class SurveysController < ApplicationController
 end
 
 
+def take_survey
+
+	@survey = Survey.find( params[ :survey_id ] )
+	@mcs = @survey.multiple_choice_questions
+
+end
+
 
 private
 

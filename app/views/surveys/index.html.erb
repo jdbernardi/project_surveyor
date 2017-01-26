@@ -24,13 +24,7 @@
 
 	</div>
 
-	<div class="row">
 
-		<div class="col-xs-12"><br />
-			<%= link_to "Take a Survey" %>
-		</div>
-
-	</div>
 
   <div class="row">
 
@@ -43,6 +37,14 @@
 				<p class="col-xs-12">
 					<%= survey.description %>
 				</p>
+
+				<div class="row">
+
+					<div class="col-xs-12"><br />
+						<%= link_to "Take a Survey", survey_take_survey_path(:survey_id => survey.id ) %>
+					</div>
+
+				</div>
 
 		<% end %>
 
