@@ -27,6 +27,13 @@
 
 				<% end %>
 
+				<div class="row">
+					<div class="col-xs-3 col-xs-offset-5">
+						<%= link_to "Remove Question", multiple_choice_question_path(mc), method: 'delete', data: { confirm: "Are you sure you want to delete" }  %>
+					</div>
+				</div>
+
+
 			<% end %>
 
 		<% end %>

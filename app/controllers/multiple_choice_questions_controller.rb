@@ -61,7 +61,30 @@ byebug
 	end
 
 
+	def destroy
+
+		@mc = MultipleChoiceQuestion.find( params[:id] )
+		@survey_id = @mc.survey_id
+
+    if @mc.destroy
+
+        flash.notice = "Question deleted! Boom!"
+
+        redirect_to question_types_path( :survey_id => @survey_id )
+    else
+
+    	flash.notice = "Question unable to delete!"
+
+    	render :new
+
+    end
+
+byebug
+	end
+
 end
+
+
 
 
 
