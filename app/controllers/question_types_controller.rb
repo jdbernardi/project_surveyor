@@ -3,9 +3,13 @@ class QuestionTypesController < ApplicationController
 
 	def index
 
-    @survey = Survey.find(params[:survey_id])
-    byebug
-
+		if Survey.find(params[:survey_id])
+			@survey = Survey.find( params[:survey_id])
+			@mcs = @survey.multiple_choice_questions
+			@rqs = @survey.range_questions
+		else
+			@surveys = Survey.all
+		end
 
 	end
 
