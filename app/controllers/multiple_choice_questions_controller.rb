@@ -44,7 +44,7 @@ class MultipleChoiceQuestionsController < ApplicationController
 	def update
 
 		@question = MultipleChoiceQuestion.find( params[:id])
-byebug
+
 		if @question.update( mc_options )
 
 			redirect_to question_types_path(:survey_id => @question.survey_id )
@@ -79,7 +79,7 @@ byebug
 
     end
 
-byebug
+
 	end
 
 end
