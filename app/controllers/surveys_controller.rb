@@ -34,7 +34,12 @@ class SurveysController < ApplicationController
 
 	end
 
+	def take
 
+		@survey = Survey.find( params[ :id ] )
+		@mcs = @survey.multiple_choice_questions
+	byebug
+	end
 
 
 	def update
@@ -47,12 +52,7 @@ class SurveysController < ApplicationController
 end
 
 
-def take_survey
-byebug
-	@survey = Survey.find( params[ :survey_id ] )
-	@mcs = @survey.multiple_choice_questions
 
-end
 
 
 private

@@ -11,10 +11,16 @@ Rails.application.routes.draw do
 
   	resources :multiple_choice_questions
     resources :range_questions
-    get 'take_survey', to: 'surveys#take_survey'
+
+
+    member do
+      get :take
+    end
+
 
 
 	end
+
 
 
 
