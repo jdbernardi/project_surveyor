@@ -7,21 +7,16 @@ Rails.application.routes.draw do
 
 
 
-  resources :surveys,   only: [:index, :new, :create, :destroy ] do
+  resources :surveys,   only: [:index, :new, :create, :destroy, :update ] do
 
   	resources :multiple_choice_questions
     resources :range_questions
 
-
-    member do
-      get :take
-    end
+    get :take, on: :member
 
 
 
 	end
-
-
 
 
 

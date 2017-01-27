@@ -43,7 +43,7 @@ class SurveysController < ApplicationController
 
 
 	def update
-
+byebug
 		@survey = Survey.find( params[:id] )
 
 	end
