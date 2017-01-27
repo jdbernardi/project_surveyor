@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 	end
 
 
-  resources :answers, only: [:update, :show]
+
 
 
   resources :question_types,  only: [:index]

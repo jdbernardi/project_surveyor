@@ -2,10 +2,10 @@
 
 <div class="row">
 
-	<h1 class="col-xs-6 center col-xs-offset-3">Survey Taker</h1>
+	<h1 class="col-xs-6 center col-xs-offset-3 underline">Survey Taker</h1>
+
 
 <%= render partial: "/shared/survey_title_description" %>
-
 
 	<p class='col-xs-12 grayed-out center italic'>Questions marked with an * are required.</h5>
 
@@ -63,7 +63,7 @@
 			<% end %> <!-- @mcs.each -->
 
 			<div class="row">
-				<%= survey_fields.submit :FinishSurvey %>
+				<%= survey_fields.submit "Finish Survey", class: "col-xs-4 col-xs-offset-4 btn btn-lg btn-primary" %>
 			</div>
 
 <% end %> <!-- Survey form_for -->
