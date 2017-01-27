@@ -1,0 +1,20 @@
+        <!-- list all multi_questions for the survey -->
+        <% if @survey.has_multi_questions? %>
+          <% @survey.all_multi_questions_with_text.each do |multi_question| %>
+            <div class="question-block">
+              <li>
+                <h4><strong><%= " * " if multi_question.required? %><%= multi_question.text.capitalize %></strong></h4>
+                <%= f.fields_for :multi_responses do |multi_response| %>
+                  <%= multi_response.hidden_field :question_id, value: multi_question.id %>
+                  <% if multi_question.multi_select? %>
+                    <!-- Multiple selection questions -->
+                    <%= multi_response.collection_check_boxes :response_option_ids, multi_question.response_options, :id, :text, {}, class: "checkbox" %>
+                  <% else %>
+                    <!-- Single selection questions -->
+                    <%= multi_response.collection_radio_buttons :response_option_ids, multi_question.response_options, :id, :text, {}, class: "radio radio-inline" %>
+                  <% end %>
+                <% end %>
+              </li>
+            </div>
+          <% end %>
+        <% end %> <!-- end of the multi_questions -->

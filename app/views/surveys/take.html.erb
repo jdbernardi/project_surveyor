@@ -34,9 +34,35 @@
 
 		<% end %>
 
-
 	</div>
+<div class="row">
+		<% @mcs.each do | mc | %>
+
+			<%=form_for mc do | mc_fields | %>
+
+				<div class="row">
+					<p class="col-xs-12 col-xs-offset-3"><%= required?( mc ) %>1.<%= mc_fields.label mc.text %>
+					</p>
+			  </div>
+
+			  <div class="row">
+			  		<div class="col-xs-6 col-xs-offset-3">
+						<%= mc_fields.collection_check_boxes(:option_ids, mc.options, :id, :option_text, {}, checked: false) do | b | %>
+							<%= b.label class:"label-checkbox" do %>
+							<%= b.check_box + b.text %>
+							<% end %>
+						<% end %>
+					</div>
+				</div>
+
+
+			<% end %>
+
+		<% end %>
 
 
 
 </div>
+
+
+
