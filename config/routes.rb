@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :surveys,   only: [:index, :new, :create, :destroy] do
+  resources :surveys,   only: [:index, :new, :create, :destroy ] do
 
   	resources :multiple_choice_questions
     resources :range_questions
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 	end
 
 
+  resources :answers, only: [:update, :show]
 
 
   resources :question_types,  only: [:index]
