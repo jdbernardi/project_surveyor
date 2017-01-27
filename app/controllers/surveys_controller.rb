@@ -48,7 +48,7 @@ end
 
 
 def take_survey
-
+byebug
 	@survey = Survey.find( params[ :survey_id ] )
 	@mcs = @survey.multiple_choice_questions
 

@@ -9,11 +9,14 @@ Rails.application.routes.draw do
 
   resources :surveys,   only: [:index, :new, :create, :destroy] do
 
-    get 'take_survey', to: 'surveys#take_survey'
   	resources :multiple_choice_questions
     resources :range_questions
+    get 'take_survey', to: 'surveys#take_survey'
+
 
 	end
+
+
 
   resources :question_types,  only: [:index]
   post 'select_question_type', to: "question_types#select_mc_or_range"
