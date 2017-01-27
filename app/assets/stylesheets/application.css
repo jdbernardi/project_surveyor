@@ -22,13 +22,37 @@
 
 }
 
+.left {
+
+	text-align: left;
+
+}
+
 .full-width {
 
 	width: 100%;
 
 }
 
+.asterisk {
+
+	position: relative;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	left: 15px;
+	top: 2px;
+
+}
+
 /* FONTS */
+
+.alert {
+
+	color: red;
+
+}
+
 
 .field_with_errors input {
 
@@ -44,7 +68,7 @@
 
 .large-font {
 
-	font-size: 30px;
+	font-size: 25px;
 
 }
 

@@ -17,14 +17,15 @@
 
 				<div class="row">
 					<% num += 1 %>
-						<p class="bold col-xs-6 col-xs-offset-3">
+						<p class="bold col-xs-6 col-xs-offset-3 left">
+							<span class="alert asterisk"><%= required?( mc ) %></span>
 							<%= "#{num}." %>&nbsp&nbsp<%= mc.text %>
 						</p>
 				</div>
 
 				<% mc.options.each do | opt | %>
 					<div class="row">
-							<p class="col-xs-4 col-xs-offset-4">&#9864&nbsp<%= opt.option_text %></p>
+							<p class="col-xs-6 col-xs-offset-3">&#9864&nbsp<%= opt.option_text %></p>
 					</div>
 
 				<% end %>
