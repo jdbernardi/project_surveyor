@@ -11,54 +11,54 @@
 
 	<div class='row'>
 
-		<% num = 0 %>
-		<% if @mcs %>
-			<% @mcs.each do | mc | %>
+		<% number = 0 %>
 
-				<div class="row">
-					<% num += 1 %>
-						<p class="bold col-xs-6 col-xs-offset-3 left">
-							<span class="alert asterisk"><%= required?( mc ) %></span>
-							<%= "#{num}." %>&nbsp&nbsp<%= mc.text %>
-						</p>
-				</div>
-
-				<% mc.options.each do | opt | %>
-					<div class="row">
-							<p class="col-xs-6 col-xs-offset-3">&#9864&nbsp<%= opt.option_text %></p>
-					</div>
-
-				<% end %>
-
-			<% end %>
-
-		<% end %>
-
-	</div>
 <div class="row">
 		<% @mcs.each do | mc | %>
-
+			<% number += 1 %>
 			<%=form_for mc do | mc_fields | %>
+				<% mc_fields.hidden_field :id %>
 
-				<div class="row">
-					<p class="col-xs-12 col-xs-offset-3"><%= required?( mc ) %>1.<%= mc_fields.label mc.text %>
-					</p>
-			  </div>
+				<% if mc.multiple_allowed %>
 
-			  <div class="row">
-			  		<div class="col-xs-6 col-xs-offset-3">
-						<%= mc_fields.collection_check_boxes(:option_ids, mc.options, :id, :option_text, {}, checked: false) do | b | %>
-							<%= b.label class:"label-checkbox" do %>
-							<%= b.check_box + b.text %>
-							<% end %>
-						<% end %>
-					</div>
-				</div>
+						<div class="row">
+							<p class="col-xs-12 col-xs-offset-3"><%= required?( mc ) %><%= number %>.<%= mc_fields.label mc.text %>
+							</p>
+					  </div>
+
+					  <div class="row">
+					  		<div class="col-xs-6 col-xs-offset-3">
+								<%= mc_fields.collection_check_boxes(:option_ids, mc.options, :id, :option_text, {}, checked: false) do | b | %>
+									<%= b.label class:"label-checkbox col-xs-12" do %>
+									<%= b.check_box + b.text %>
+									<% end %>
+								<% end %>
+							</div>
+						</div>
+
+				<% else %> <!--if only one option do radio buttons -->
+
+						<div class="row">
+							<p class="col-xs-12 col-xs-offset-3"><%= required?( mc ) %><%= number %>.<%= mc_fields.label mc.text %>
+							</p>
+					  </div>
+
+					  <div class="row">
+					  		<div class="col-xs-6 col-xs-offset-3">
+								<%= mc_fields.collection_radio_buttons(:option_ids, mc.options, :id, :option_text, {}, checked: false) do | b | %>
+									<%= b.label class:"label-checkbox col-xs-12" do %>
+									<%= b.radio_button + b.text %>
+									<% end %>
+								<% end %>
+							</div>
+						</div>
+
+				<% end %> <!--multiple allowed -->
+
+			<% end %> <!-- form_for mc -->
 
 
-			<% end %>
-
-		<% end %>
+		<% end %> <!-- @mcs.each -->
 
 
 
