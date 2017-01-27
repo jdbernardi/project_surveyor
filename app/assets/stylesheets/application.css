@@ -14,15 +14,11 @@
  *= require_self
  */
 
+/* ALIGNMENT */
+
 .center {
 
 	text-align: center;
-
-}
-
-.field_with_errors input {
-
-	border: 2px solid red;
 
 }
 
@@ -32,9 +28,41 @@
 
 }
 
+/* FONTS */
+
+.field_with_errors input {
+
+	border: 2px solid red;
+
+}
+
+.bold {
+
+	font-weight: 900;
+
+}
+
 .large-font {
 
 	font-size: 30px;
+
+}
+
+.small-header {
+
+	font-size: 20px;
+
+}
+
+.sub-header {
+
+	font-size: 15px;
+
+}
+
+.italic {
+
+	font-style: italic;
 
 }
 

@@ -1,3 +1,41 @@
 
 
+<div class="row">
+
+	<h1 class="col-xs-6 center col-xs-offset-3">Survey Taker</h1>
+
 <%= render partial: "/shared/survey_title_description" %>
+
+
+	<p class='col-xs-12 grayed-out center italic'>Questions marked with an * are required.</h5>
+
+	<div class='row'>
+
+		<% num = 0 %>
+		<% if @mcs %>
+			<% @mcs.each do | mc | %>
+
+				<div class="row">
+					<% num += 1 %>
+						<p class="bold col-xs-6 col-xs-offset-3">
+							<%= "#{num}." %>&nbsp&nbsp<%= mc.text %>
+						</p>
+				</div>
+
+				<% mc.options.each do | opt | %>
+					<div class="row">
+							<p class="col-xs-4 col-xs-offset-4">&#9864&nbsp<%= opt.option_text %></p>
+					</div>
+
+				<% end %>
+
+			<% end %>
+
+		<% end %>
+
+
+	</div>
+
+
+
+</div>

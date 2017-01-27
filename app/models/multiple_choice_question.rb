@@ -6,5 +6,6 @@ class MultipleChoiceQuestion < ApplicationRecord
 
 	accepts_nested_attributes_for :options, :reject_if => :all_blank
 
+	accepts_nested_attributes_for :answers
 
 end
