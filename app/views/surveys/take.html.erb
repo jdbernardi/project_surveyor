@@ -50,8 +50,8 @@
 
 						  <% mc.options.each do | option | %>
 
-						  	<%= option.option_text %>
-						  	<%= radio_button :option, option.question_id, option.id %>
+						  	<p class='label-checkbox col-xs-6 col-xs-offset-3'><%= radio_button :option, option.id, option.question_id %>&nbsp<%= option.option_text %></p>
+
 
 						  <% end %>
 
