@@ -22,7 +22,7 @@
 			<% @mcs.each do | mc | %>
 				<% number += 1 %>
 				<%= survey_fields.fields_for mc do | mc_fields | %>
-					<% mc_fields.hidden_field :id %>
+
 
 					<% if mc.multiple_allowed %>
 
@@ -37,6 +37,7 @@
 										<%= b.label class:"label-checkbox col-xs-12" do %>
 										<%= b.check_box + b.text %>
 										<% end %>
+									<%= mc_fields.hidden_field :id %>
 									<% end %>
 								</div>
 							</div>
@@ -50,7 +51,7 @@
 
 						  <% mc.options.each do | option | %>
 
-						  	<p class='label-checkbox col-xs-6 col-xs-offset-3'><%= radio_button :option, option.id, option.question_id %>&nbsp<%= option.option_text %></p>
+						  	<p class='label-checkbox col-xs-6 col-xs-offset-3'><%= radio_button :option, option.question_id, option.id %>&nbsp<%= option.option_text %></p>
 
 
 						  <% end %>
