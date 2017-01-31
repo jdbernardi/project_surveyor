@@ -8,4 +8,5 @@ class MultipleChoiceQuestion < ApplicationRecord
 
 	accepts_nested_attributes_for :answers
 
+
 end

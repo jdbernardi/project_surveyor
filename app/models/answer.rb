@@ -5,4 +5,5 @@ class Answer < ApplicationRecord
 	belongs_to :range_question
 	has_many :options
 
+
 end
