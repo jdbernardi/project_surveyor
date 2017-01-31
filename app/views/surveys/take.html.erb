@@ -52,7 +52,8 @@
 						  		<div class="col-xs-6 col-xs-offset-3">
 									<%= mc_fields.collection_radio_buttons(:option_ids, mc.options, :id, :option_text, {}, checked: false) do | b | %>
 										<%= b.label class:"label-checkbox col-xs-12" do %>
-										<%= b.radio_button + b.text %>
+
+										<%= b.radio_button + b.text  %>
 										<% end %>
 									<% end %>
 								</div>
