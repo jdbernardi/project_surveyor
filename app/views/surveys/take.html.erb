@@ -31,15 +31,16 @@
 								</p>
 						  </div>
 
+
 						  <div class="row">
 						  		<div class="col-xs-6 col-xs-offset-3">
-									<%= mc_fields.collection_check_boxes(:option_ids, mc.options, :id, :option_text, {}, checked: false ) do | b | %>
-										<%= b.label class:"label-checkbox col-xs-12" do %>
-										<%= b.check_box + b.text %>
-										<% end %>
+									<% mc.options.each do | opt | %>
+										<%= label_tag :option, opt.option_text,  class: "label-checkbox"  %>
+										<%= check_box_tag :"option[]", opt.id %>
 									<% end %>
 								</div>
 							</div>
+
 
 
 					<% else %> <!--if only one option do radio buttons -->
@@ -64,7 +65,7 @@
 			<% end %> <!-- @mcs.each -->
 
 			<div class="row">
-				<%= survey_fields.submit "Finish Survey", class: "col-xs-4 col-xs-offset-4 btn btn-lg btn-primary" %>
+				<%= survey_fields.submit "Finish Survey", method: 'patch', class: "col-xs-4 col-xs-offset-4 btn btn-lg btn-primary" %>
 			</div>
 
 <% end %> <!-- Survey form_for -->
