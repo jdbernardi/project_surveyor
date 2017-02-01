@@ -6,7 +6,7 @@ class AnswersController < ApplicationController
 
 		radio_responses = params[:option]
 
-		create_answers( radio_responses )
+		create_answers_for_radio( radio_responses )
 
 	end
 

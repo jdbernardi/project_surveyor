@@ -5,7 +5,7 @@ class Survey < ApplicationRecord
 
 
 
-	has_many :answers
+
 	has_many :multiple_choice_questions, dependent: :destroy
 	has_many :range_questions, dependent: :destroy
 
