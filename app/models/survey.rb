@@ -3,7 +3,7 @@ class Survey < ApplicationRecord
 	validates :title, presence: true, uniqueness: true
 	validates :description, presence: true
 
-
+	has_many :answers, :through => :options
 
 
 	has_many :multiple_choice_questions, dependent: :destroy

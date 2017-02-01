@@ -4,9 +4,14 @@ class AnswersController < ApplicationController
 
 	def create
 
-		radio_responses = params[:option]
+		radio_responses = generate_option_id_array( params[:option] )
 
-		create_answers_for_radio( radio_responses )
+		checkbox_responses = generate_checkbox_ids
+
+		create_answers( radio_responses + checkbox_responses )
+
+		redirect_to surveys_path
+
 
 	end
 
