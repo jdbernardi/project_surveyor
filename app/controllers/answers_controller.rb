@@ -16,6 +16,15 @@ class AnswersController < ApplicationController
 	end
 
 
+	def show
+
+byebug
+
+		@survey = Survey.find( params[:survey_id] )
+
+	end
+
+
 end
 
 

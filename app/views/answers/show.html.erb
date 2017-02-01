@@ -1,0 +1,51 @@
+<div class="row">
+
+	<h1 class="col-xs-12 center">
+		Survey Results
+	</h1>
+
+</div>
+
+<%= render  :partial => "/shared/survey_title_description", survey: @survey %>
+
+
+<% @survey.multiple_choice_questions.each do | mc | %>
+
+	<div class="col-xs-6 col-xs-offset-3 table-responsive">
+		<p class="large-font col-xs-12">
+			<%= mc.text %>
+		</p>
+		<table class="table">
+
+			<thead>
+				<tr>
+					<th class="col-xs-10">
+						Response
+					</th>
+					<th class="col-xs-2">
+						Count
+					</th>
+				</tr>
+			</thead>
+
+			<tbody>
+
+
+				<% mc.options.each do | option | %>
+				<tr>
+					<td>
+						<%= option.option_text %>
+					</td>
+					<td>
+						<%= option.answers.count %>
+					</td>
+
+				</tr>
+				<% end %>
+			</tbody>
+
+		</table>
+
+
+  </div>
+<% end %>

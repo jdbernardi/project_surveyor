@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   	resources :multiple_choice_questions
     resources :range_questions
     get :take, on: :member
+    get 'answers', to: "answers#show"
 
 
 
