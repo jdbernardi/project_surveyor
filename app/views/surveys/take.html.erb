@@ -15,7 +15,7 @@
 
 
 
-<%= form_for @survey do  | survey_fields | %>
+<%= form_for @survey, url: answers_path( :survey_id => @survey.id ) do  | survey_fields | %>
 
 
 	<div class="row">
@@ -52,7 +52,7 @@
 
 						  <% mc.options.each do | option | %>
 
-						  	<p class='label-checkbox col-xs-6 col-xs-offset-3'><%= radio_button :option, option.question_id, option.id, required: mc.required %>&nbsp<%= option.option_text %></p>
+						  	<p class='label-checkbox col-xs-6 col-xs-offset-3'><%= radio_button :option_mc_ids, option.question_id, option.id, required: mc.required %>&nbsp<%= option.option_text %></p>
 
 
 						  <% end %>

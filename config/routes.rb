@@ -4,19 +4,18 @@ Rails.application.routes.draw do
   #get 'define_options', to: 'question_types#set_mc_options'
 
   get 'new_options', to: 'multiple_choice_questions#new_options'
-
-
+  patch '/answers', to: "answers#create"
 
   resources :surveys,   only: [:index, :new, :create, :destroy, :update ] do
 
   	resources :multiple_choice_questions
     resources :range_questions
-
     get :take, on: :member
 
 
 
 	end
+
 
 
 
