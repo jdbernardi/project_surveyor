@@ -33,10 +33,10 @@
 
 
 						  <div class="row">
-						  		<div class="col-xs-6 col-xs-offset-3">
+						  		<div class="col-xs-6 label-checkbox col-xs-offset-3">
 									<% mc.options.each do | opt | %>
-										<%= label_tag :checkboxes, opt.option_text,  class: "label-checkbox"  %>
 										<%= check_box_tag :"checkbox_op_ids[]", opt.id %>
+										<%= label_tag :checkboxes, opt.option_text,  class: "label-checkbox"  %><br />
 									<% end %>
 								</div>
 							</div>
@@ -50,12 +50,14 @@
 								</p>
 						  </div>
 
+
 						  <% mc.options.each do | option | %>
 
 						  	<p class='label-checkbox col-xs-6 col-xs-offset-3'><%= radio_button :option, mc.id, option.id  %>&nbsp<%= option.option_text %></p>
 
 
 						  <% end %>
+
 
 					<% end %> <!--multiple allowed -->
 
