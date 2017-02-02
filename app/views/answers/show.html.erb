@@ -7,13 +7,21 @@
 </div>
 
 <%= render  :partial => "/shared/survey_title_description", survey: @survey %>
+<% num = 0 %>
 
+<div class="row">
+
+	<p class="col-xs-12 italic center">
+		Total Responses: <%= total_responses %>
+	</p>
+
+</div>
 
 <% @survey.multiple_choice_questions.each do | mc | %>
 
 	<div class="col-xs-6 col-xs-offset-3 table-responsive">
-		<p class="large-font col-xs-12">
-			<%= mc.text %>
+		<p class="bold col-xs-12">
+			<%= num += 1 %>.&nbsp<%= mc.text %>
 		</p>
 		<table class="table">
 
