@@ -23,7 +23,9 @@ class AnswersController < ApplicationController
 
 			flash[:error] = "Please answer required questions marked with *"
 
-			redirect_to take_survey_path( @survey )
+			@errors = 'field_with_errors'
+
+			redirect_to take_survey_path( @survey, :error => 'field_with_errors' )
 
 		end
 

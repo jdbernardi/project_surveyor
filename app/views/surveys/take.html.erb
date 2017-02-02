@@ -14,7 +14,6 @@
 		<% number = 0 %>
 
 
-
 <%= form_for @survey, url: answers_path( :survey_id => @survey.id ) do  | survey_fields | %>
 
 
@@ -33,7 +32,7 @@
 
 
 						  <div class="row">
-						  		<div class="col-xs-6 label-checkbox col-xs-offset-3">
+						  		<div class="col-xs-6 label-checkbox col-xs-offset-3  <%= mc.required ? @errors : "" %>">
 									<% mc.options.each do | opt | %>
 										<%= check_box_tag :"checkbox_op_ids[]", opt.id %>
 										<%= label_tag :checkboxes, opt.option_text,  class: "label-checkbox"  %><br />
@@ -43,21 +42,27 @@
 
 
 
-					<% else %> <!--if only one option do radio buttons -->
+					<% else %>
 
 							<div class="row">
-								<p class="col-xs-12 col-xs-offset-3"><%= required?( mc ) %><%= number %>.<%= mc_fields.label mc.text %>
+								<p class="col-xs-6 col-xs-offset-3">
+									<%= required?( mc ) %><%= number %>.<%= mc_fields.label mc.text %>
 								</p>
 						  </div>
 
 
-						  <% mc.options.each do | option | %>
+						  <div class="row <%= mc.required ? @errors : "" %>">
 
-						  	<p class='label-checkbox col-xs-6 col-xs-offset-3'><%= radio_button :option, mc.id, option.id  %>&nbsp<%= option.option_text %></p>
+						  	<% mc.options.each do | option | %>
+
+						  	<p class='label-checkbox col-xs-6 col-xs-offset-3'>
+						  		<%= radio_button :option, mc.id, option.id  %>&nbsp<%= option.option_text %>
+						  	</p>
 
 
 						  <% end %>
 
+							</div>
 
 					<% end %> <!--multiple allowed -->
 
