@@ -72,10 +72,11 @@ def generate_options_for_mc
 			option.save
 
 		end
-
 	end
-
 end
+
+
+
 
 MULTIPLIER.times { generate_surveys }
 generate_multiple_choice_questions

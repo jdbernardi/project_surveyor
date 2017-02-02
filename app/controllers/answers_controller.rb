@@ -2,15 +2,28 @@ class AnswersController < ApplicationController
 
 	include AnswersHelper
 
+
+
 	def create
 
-		radio_responses = generate_option_id_array( params[:option] )
+		@survey = Survey.find( params[:survey_id] )
 
-		checkbox_responses = generate_checkbox_ids
+		all_answers = generate_option_id_array( params[:option] ) + generate_checkbox_ids
 
-		create_answers( radio_responses + checkbox_responses )
 
-		redirect_to surveys_path
+		if validate_required( all_answers )
+
+			create_answers( all_answers )
+
+			redirect_to surveys_path
+
+		else
+
+			flash.notice = "Please answer required questions marked with *"
+
+			redirect_to take_survey_path( @survey )
+
+		end
 
 
 	end

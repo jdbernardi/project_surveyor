@@ -37,5 +37,26 @@ module AnswersHelper
 	end
 
 
+	def validate_required( answers )
+
+		# start with all the multi choice questions
+		mcs = @survey.multiple_choice_questions
+		answers_int = answers.map(&:to_i)
+		# starting with the first question
+		mcs.each do | mc |
+			# if it's required
+			byebug
+			if mc.required && ( answers_int & mc.options.ids).empty?
+			# check if that questions options are in the answers
+
+			  return false
+
+			end
+
+		end
+
+
+	end
+
 
 end
