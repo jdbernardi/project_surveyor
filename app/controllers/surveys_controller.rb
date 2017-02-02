@@ -4,14 +4,15 @@ class SurveysController < ApplicationController
 
 		@surveys = Survey.all
 
-
 	end
+
 
 	def new
 
 		@survey = Survey.new
 
 	end
+
 
 	def create
 
@@ -22,8 +23,6 @@ class SurveysController < ApplicationController
 			flash[:success] = "created survey"
 
 			redirect_to question_types_path( :survey_id => @survey.id )
-
-			#explicitly named route
 
 		else
 
@@ -65,8 +64,6 @@ private
 						 { :options_attributes => [
 						 	 :option_text
 						 	] } )
-
-
 
 	end
 

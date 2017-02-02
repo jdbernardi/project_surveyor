@@ -64,4 +64,3 @@ private
 
 
 end
-	   #params.require(:survey).permit( :title, :description )

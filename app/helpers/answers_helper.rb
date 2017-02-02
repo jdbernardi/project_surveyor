@@ -4,8 +4,7 @@ module AnswersHelper
 
 
 	def generate_option_id_array( params_pairs )
-		#ActionController::Parameters passed in here
-		#take out the option ID so we can pass the same array to method for creating answers
+
 		return [] if !params_pairs
 
 		arr = []
@@ -37,7 +36,7 @@ module AnswersHelper
 	end
 
 
-	def validate_required( answers )
+	def required_questions_answered( answers )
 
 		# start with all the multi choice questions
 		mcs = @survey.multiple_choice_questions

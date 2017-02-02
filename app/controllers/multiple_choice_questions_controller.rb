@@ -68,12 +68,12 @@ class MultipleChoiceQuestionsController < ApplicationController
 
     if @mc.destroy
 
-        flash.notice = "Question deleted! Boom!"
+        flash[:success] = "Question deleted! Boom!"
 
         redirect_to question_types_path( :survey_id => @survey_id )
     else
 
-    	flash.notice = "Question unable to delete!"
+    	flash[:notice] = "Question unable to delete!"
 
     	render :new
 

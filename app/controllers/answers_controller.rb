@@ -11,7 +11,7 @@ class AnswersController < ApplicationController
 		all_answers = generate_option_id_array( params[:option] ) + generate_checkbox_ids
 
 
-		if validate_required( all_answers )
+		if required_questions_answered( all_answers )
 
 			create_answers( all_answers )
 
