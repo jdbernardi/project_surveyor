@@ -12,8 +12,9 @@
 Survey.destroy_all
 MultipleChoiceQuestion.destroy_all
 Option.destroy_all
+Answer.destroy_all
 
-MULTIPLIER = 5
+MULTIPLIER = 20
 
 # generate_surveys
 def generate_surveys
@@ -33,15 +34,14 @@ def generate_multiple_choice_questions
 
 		rand(3..6).times do
 			mc = MultipleChoiceQuestion.new
-			random_boolean = [ true, false ].sample
 		# :multiple_allowed
-			mc[:multiple_allowed] = random_boolean
+			mc[:multiple_allowed] = [ true, false ].sample
 		# :num_options
 			mc[:num_options] = rand( 1..5 )
 		# :survey_id
 		  mc[:survey_id] = survey.id
 		# :required
-			mc[:required] = random_boolean
+			mc[:required] = [ true, false ].sample
 		# :text
 			mc[:text] = Faker::Lorem.sentence
 
@@ -76,11 +76,47 @@ def generate_options_for_mc
 end
 
 
+def generate_responses
+
+	survey = Survey.all.sample
+
+	survey.multiple_choice_questions.each do | mc |
+
+		if mc.multiple_allowed
 
 
-MULTIPLIER.times { generate_surveys }
+			ids_options = mc.options.ids
+
+			rand(1..mc.num_options).times do
+
+				num = ids_options.delete ids_options.sample
+
+				option = Option.find( num )
+				answer = option.answers.build
+				answer.save
+
+			end
+
+		else
+
+			ids_options  = mc.options.ids
+
+			option = Option.find( ids_options.sample )
+			answer = option.answers.build
+			answer.save
+
+
+		end
+
+	end
+
+end
+
+
+10.times { generate_surveys }
 generate_multiple_choice_questions
 generate_options_for_mc
 # create one without questions
-generate_surveys
+MULTIPLIER.times { generate_responses }
+
 
