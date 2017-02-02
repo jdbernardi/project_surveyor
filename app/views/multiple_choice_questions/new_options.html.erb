@@ -1,29 +1,30 @@
-<div class="row">
-
-	<div class="form-group col-xs-6 col-xs-offset-2">
-
+<br />
 		<%= form_for @question do | mc | %>
 
 			<div class='row'>
-				<%= mc.label :text %>
-				<%= mc.text_field :text, required: true %>
+				<p class="col-xs-2">
+					<%= mc.label :question %>
+				</p>
+				<div class="col-xs-4">
+					<%= mc.text_field :text, required: true %>
+				</div>
 		  </div>
 				<%= mc.fields_for :options do | o_fields | %>
 
 
 					<div class="row">
-						<%= o_fields.label :option_text %>
-						<%= o_fields.text_field :option_text, required: true %>
+						<p class="col-xs-2">
+							<%= o_fields.label :response %>
+						</p>
+						<p class="col-xs-4">
+							<%= o_fields.text_field :option_text, required: true %>
+						</p>
 					</div>
 
 			<% end %>
 
-				<%= mc.submit :CreateQuestion %>
+				<%= mc.submit :CreateQuestion, class: "col-xs-4 btn btn-primary" %>
 
 		<% end %>
 
 
-	</div>
-
-
-</div>
