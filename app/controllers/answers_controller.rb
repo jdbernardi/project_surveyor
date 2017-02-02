@@ -15,11 +15,13 @@ class AnswersController < ApplicationController
 
 			create_answers( all_answers )
 
+			flash[:success] = "Thanks for taking the survey!"
+
 			redirect_to surveys_path
 
 		else
 
-			flash.notice = "Please answer required questions marked with *"
+			flash[:error] = "Please answer required questions marked with *"
 
 			redirect_to take_survey_path( @survey )
 
