@@ -8,7 +8,7 @@ class AnswersController < ApplicationController
 
 		@survey = Survey.find( params[:survey_id] )
 
-		all_answers = generate_option_id_array( params[:option] ) + generate_checkbox_ids
+		all_answers = pull_radio_ids( params[:option] ) + pull_checkbox_ids
 
 
 		if required_questions_answered( all_answers )
@@ -22,8 +22,6 @@ class AnswersController < ApplicationController
 		else
 
 			flash[:error] = "Please answer required questions marked with *"
-
-			@errors = 'field_with_errors'
 
 			redirect_to take_survey_path( @survey, :error => 'field_with_errors' )
 

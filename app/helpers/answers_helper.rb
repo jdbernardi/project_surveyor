@@ -1,7 +1,7 @@
 module AnswersHelper
 
 
-	def generate_option_id_array( params_pairs )
+	def pull_radio_ids( params_pairs )
 
 		return [] if !params_pairs
 
@@ -13,7 +13,7 @@ module AnswersHelper
 
 	end
 
-	def generate_checkbox_ids
+	def pull_checkbox_ids
 
 		params[:checkbox_op_ids] ? params[:checkbox_op_ids] : []
 
