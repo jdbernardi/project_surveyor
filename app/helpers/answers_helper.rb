@@ -1,25 +1,7 @@
 module AnswersHelper
 
 
-	def total_responses
 
-		return if !@survey.multiple_choice_questions
-
-		total = []
-
-		@survey.multiple_choice_questions.each do | mc |
-
-			mc.options.each do | option |
-
-				total << option.answers.count
-
-			end
-
-		end
-
-		return total.inject( 0 ) { |r,e| r + e }
-
-	end
 
 	def generate_option_id_array( params_pairs )
 		#ActionController::Parameters passed in here

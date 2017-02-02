@@ -26,29 +26,46 @@
 
 
 
-  <div class="row">
+
 
 		<% @surveys.each do | survey | %>
 
-				<h3 class="col-xs-12">
-					<%= survey.title %>
-				</h3>
+	  <div class="row">
 
-				<p class="col-xs-12">
-					<%= survey.description %>
-				</p>
+					<h3 class="col-xs-12">
+						<%= survey.title %>
+					</h3>
 
-				<div class="row">
+		</div>
 
-					<div class="col-xs-6"><br />
-						<%= link_to "Take a Survey", take_survey_path(survey) %>
-					</div>
+		<div class="row">
 
-					<div class="col-xs-6"><br />
-						<%= link_to "View Results", survey_answers_path(survey) %>
-					</div>
+					<p class="col-xs-12">
+						<%= survey.description %>
+					</p>
 
-				</div>
+		</div>
+
+		<div class="row">
+
+					<p class="col-xs-12">
+						<%= total_responses( survey ) %>&nbspResponses
+					</p>
+
+		</div>
+
+
+		<div class="row">
+
+			<div class="col-xs-6"><br />
+				<%= link_to "Take a Survey", take_survey_path(survey) %>
+			</div>
+
+			<div class="col-xs-6"><br />
+				<%= link_to "View Results", survey_answers_path(survey) %>
+			</div>
+
+		</div>
 
 		<% end %>
 
