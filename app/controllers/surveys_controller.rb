@@ -40,8 +40,6 @@ class SurveysController < ApplicationController
 		@survey = Survey.find( params[ :id ] )
 		@mcs = @survey.multiple_choice_questions
 
-		@errors = error_taking_survey
-
 	end
 
 

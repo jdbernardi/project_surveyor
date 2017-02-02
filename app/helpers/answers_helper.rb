@@ -1,8 +1,6 @@
 module AnswersHelper
 
 
-
-
 	def generate_option_id_array( params_pairs )
 
 		return [] if !params_pairs

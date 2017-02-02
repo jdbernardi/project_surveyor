@@ -32,7 +32,7 @@
 
 
 						  <div class="row">
-						  		<div class="col-xs-6 label-checkbox col-xs-offset-3  <%= mc.required ? @errors : "" %>">
+						  		<div class="col-xs-6 label-checkbox col-xs-offset-3  <%= mc.required ? error_taking_survey : "" %>">
 									<% mc.options.each do | opt | %>
 										<%= check_box_tag :"checkbox_op_ids[]", opt.id %>
 										<%= label_tag :checkboxes, opt.option_text,  class: "label-checkbox"  %><br />
@@ -51,7 +51,7 @@
 						  </div>
 
 
-						  <div class="row <%= mc.required ? @errors : "" %>">
+						  <div class="row <%= mc.required ? error_taking_survey : "" %>">
 
 						  	<% mc.options.each do | option | %>
 
