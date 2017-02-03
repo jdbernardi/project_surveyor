@@ -6,6 +6,8 @@ class AnswersController < ApplicationController
 
 	def create
 
+		byebug
+
 		@survey = Survey.find( params[:survey_id] )
 
 		all_answers = pull_radio_ids( params[:option] ) + pull_checkbox_ids

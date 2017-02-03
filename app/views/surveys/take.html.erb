@@ -50,13 +50,27 @@
 								</p>
 						  </div>
 
+					<%= mc.fields_for :options do | o_fields | %>
+
+
+							<div class="row">
+						  	<p class='label-checkbox col-xs-6 col-xs-offset-3'>
+						  		<%= o_fields.radio_button :option, :"options_attr[]", option.id  %>&nbsp<%= option.option_text %>
+						  	</p>
+								<p class="col-xs-4">
+									<%= o_fields.text_field :option_text, required: true %>
+								</p>
+							</div>
+
+					<% end %>
+
 
 						  <div class="row <%= mc.required ? error_taking_survey : "" %>">
 
 						  	<% mc.options.each do | option | %>
 
 						  	<p class='label-checkbox col-xs-6 col-xs-offset-3'>
-						  		<%= radio_button :option, mc.id, option.id  %>&nbsp<%= option.option_text %>
+						  		<%= radio_button :option, :"options_attr[]", option.id  %>&nbsp<%= option.option_text %>
 						  	</p>
 
 
@@ -64,12 +78,12 @@
 
 							</div>
 
-					<% end %> <!--multiple allowed -->
+					<% end %>
 
-				<% end %> <!-- form_for mc -->
+				<% end %>
 
 
-			<% end %> <!-- @mcs.each -->
+			<% end %>
 
 			<div class="row">
 				<%= survey_fields.submit "Finish Survey", method: 'patch', class: "col-xs-4 col-xs-offset-4 btn btn-lg btn-primary" %>
